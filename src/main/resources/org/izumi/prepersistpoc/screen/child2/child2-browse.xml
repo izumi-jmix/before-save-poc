@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://child2Browse.caption"
+        focusComponent="child2sTable">
+    <data readOnly="true">
+        <collection id="child2sDc"
+                    class="org.izumi.prepersistpoc.entity.Child2">
+            <fetchPlan extends="_base"/>
+            <loader id="child2sDl">
+                <query>
+                    <![CDATA[select e from Child2 e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="lookupSelectAction"
+                caption="msg:///actions.Select"
+                icon="LOOKUP_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="lookupCancelAction"
+                caption="msg:///actions.Cancel"
+                icon="LOOKUP_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="child2sTable" spacing="true">
+        <filter id="filter"
+                dataLoader="child2sDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="child2sTable"
+                    width="100%"
+                    dataContainer="child2sDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="height"/>
+            </columns>
+            <simplePagination/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="child2sTable.create"/>
+                <button id="editBtn" action="child2sTable.edit"/>
+                <button id="removeBtn" action="child2sTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

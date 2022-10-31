@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://jmix.io/schema/ui/menu">
+
+    <menu id="application" caption="msg://org.izumi.prepersistpoc/menu.application" insertBefore="administration">
+        <item screen="User.browse" caption="msg://org.izumi.prepersistpoc.screen.user/UserBrowse.caption"/>
+        <item screen="themeSettingsScreen" caption="msg://io.jmix.ui.app.themesettings/themeSettings.caption"/>
+        <item screen="Child1.browse" caption="msg://org.izumi.prepersistpoc.screen.child1/child1Browse.menu"/>
+        <item screen="Child2.browse" caption="msg://org.izumi.prepersistpoc.screen.child2/child2Browse.menu"/>
+    </menu>
+
+</menu-config>
